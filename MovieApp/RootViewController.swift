@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RootViewController.swift
 //  MovieApp
 //
 //  Created by Giorgi Kratsashvili on 7/25/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RootViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

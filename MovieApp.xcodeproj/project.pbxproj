@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C773A3A126ADB6C3006ECC34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773A3A026ADB6C3006ECC34 /* AppDelegate.swift */; };
 		C773A3A326ADB6C3006ECC34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773A3A226ADB6C3006ECC34 /* SceneDelegate.swift */; };
-		C773A3A526ADB6C3006ECC34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773A3A426ADB6C3006ECC34 /* ViewController.swift */; };
+		C773A3A526ADB6C3006ECC34 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773A3A426ADB6C3006ECC34 /* RootViewController.swift */; };
 		C773A3A826ADB6C3006ECC34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C773A3A626ADB6C3006ECC34 /* Main.storyboard */; };
 		C773A3AA26ADB6C6006ECC34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C773A3A926ADB6C6006ECC34 /* Assets.xcassets */; };
 		C773A3AD26ADB6C6006ECC34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C773A3AB26ADB6C6006ECC34 /* LaunchScreen.storyboard */; };
@@ -38,7 +38,7 @@
 		C773A39D26ADB6C3006ECC34 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C773A3A026ADB6C3006ECC34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C773A3A226ADB6C3006ECC34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C773A3A426ADB6C3006ECC34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C773A3A426ADB6C3006ECC34 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		C773A3A726ADB6C3006ECC34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C773A3A926ADB6C6006ECC34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C773A3AC26ADB6C6006ECC34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,6 +76,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C73C4F3A26ADE01A00AFC4F8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C773A3A026ADB6C3006ECC34 /* AppDelegate.swift */,
+				C773A3A226ADB6C3006ECC34 /* SceneDelegate.swift */,
+				C773A3A626ADB6C3006ECC34 /* Main.storyboard */,
+				C773A3A926ADB6C6006ECC34 /* Assets.xcassets */,
+				C773A3AB26ADB6C6006ECC34 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		C773A39426ADB6C3006ECC34 = {
 			isa = PBXGroup;
 			children = (
@@ -99,12 +111,8 @@
 		C773A39F26ADB6C3006ECC34 /* MovieApp */ = {
 			isa = PBXGroup;
 			children = (
-				C773A3A026ADB6C3006ECC34 /* AppDelegate.swift */,
-				C773A3A226ADB6C3006ECC34 /* SceneDelegate.swift */,
-				C773A3A426ADB6C3006ECC34 /* ViewController.swift */,
-				C773A3A626ADB6C3006ECC34 /* Main.storyboard */,
-				C773A3A926ADB6C6006ECC34 /* Assets.xcassets */,
-				C773A3AB26ADB6C6006ECC34 /* LaunchScreen.storyboard */,
+				C773A3A426ADB6C3006ECC34 /* RootViewController.swift */,
+				C73C4F3A26ADE01A00AFC4F8 /* Supporting Files */,
 				C773A3AE26ADB6C6006ECC34 /* Info.plist */,
 			);
 			path = MovieApp;
@@ -258,7 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C773A3A526ADB6C3006ECC34 /* ViewController.swift in Sources */,
+				C773A3A526ADB6C3006ECC34 /* RootViewController.swift in Sources */,
 				C773A3A126ADB6C3006ECC34 /* AppDelegate.swift in Sources */,
 				C773A3A326ADB6C3006ECC34 /* SceneDelegate.swift in Sources */,
 			);
@@ -438,6 +446,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MovieApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,6 +465,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MovieApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
