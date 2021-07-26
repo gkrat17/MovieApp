@@ -7,7 +7,7 @@
 	<key>SERVICE_URL</key>
 	<string>api.themoviedb.org</string>
 	<key>RESOURCE_URL</key>
-	<string>https://image.tmdb.org/t/p/w500</string>
+	<string>image.tmdb.org</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

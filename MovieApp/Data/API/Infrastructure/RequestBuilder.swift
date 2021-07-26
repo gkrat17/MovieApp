@@ -12,12 +12,16 @@ final class RequestBuilder {
 
     init(
         host: String = Bundle.main.serviceUrl,
-        apiKey: String = Bundle.main.apiKey
+        apiKey: String? = Bundle.main.apiKey
     ) {
         var components = URLComponents()
         components.scheme = "https"
         components.host = host
-        components.queryItems = [.init(key: .apiKey, value: apiKey)]
+        if let apiKey = apiKey {
+            components.queryItems = [.init(key: .apiKey, value: apiKey)]
+        } else {
+            components.queryItems = []
+        }
         self.components = components
     }
 
@@ -38,11 +42,13 @@ final class RequestBuilder {
     enum Method {
         case popular
         case similar(id: Int)
+        case image(id: String)
 
         var path: String {
             switch self {
             case .popular:         return "/3/tv/popular"
             case .similar(let id): return "/3/tv/\(id)/similar"
+            case .image(let id):   return "/t/p/w500\(id)"
             }
         }
     }

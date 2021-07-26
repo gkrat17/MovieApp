@@ -19,6 +19,12 @@ class RootViewController: UINavigationController {
             .build()
 
         print(request)
+
+        let request2 = RequestBuilder(host: Bundle.main.resourceUrl, apiKey: nil)
+            .set(method: .image(id: "/bZGAX8oMDm3Mo5i0ZPKh9G2OcaO.jpg"))
+            .build()
+
+        print(request2)
         print("")
     }
 
