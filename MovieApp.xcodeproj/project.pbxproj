@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C73C4F9C26AE017400AFC4F8 /* DataTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C4F9B26AE017400AFC4F8 /* DataTransferService.swift */; };
+		C73C4FA126AE026500AFC4F8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C4FA026AE026500AFC4F8 /* NetworkService.swift */; };
+		C73C4FA626AE035D00AFC4F8 /* DataTransferResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C4FA526AE035D00AFC4F8 /* DataTransferResponse.swift */; };
+		C73C4FAE26AF12D000AFC4F8 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C4FAD26AF12D000AFC4F8 /* ErrorType.swift */; };
 		C773A3A126ADB6C3006ECC34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773A3A026ADB6C3006ECC34 /* AppDelegate.swift */; };
 		C773A3A326ADB6C3006ECC34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773A3A226ADB6C3006ECC34 /* SceneDelegate.swift */; };
 		C773A3A526ADB6C3006ECC34 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773A3A426ADB6C3006ECC34 /* RootViewController.swift */; };
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C73C4F9B26AE017400AFC4F8 /* DataTransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferService.swift; sourceTree = "<group>"; };
+		C73C4FA026AE026500AFC4F8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		C73C4FA526AE035D00AFC4F8 /* DataTransferResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferResponse.swift; sourceTree = "<group>"; };
+		C73C4FAD26AF12D000AFC4F8 /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		C773A39D26ADB6C3006ECC34 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C773A3A026ADB6C3006ECC34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C773A3A226ADB6C3006ECC34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +96,72 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C73C4F6B26ADF6EB00AFC4F8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C73C4F6C26ADF76200AFC4F8 /* API */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C73C4F6C26ADF76200AFC4F8 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				C73C4F6D26ADF76A00AFC4F8 /* Infrastructure */,
+				C73C4F7226ADF81400AFC4F8 /* Repositories */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		C73C4F6D26ADF76A00AFC4F8 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				C73C4F9B26AE017400AFC4F8 /* DataTransferService.swift */,
+				C73C4FA526AE035D00AFC4F8 /* DataTransferResponse.swift */,
+				C73C4FA026AE026500AFC4F8 /* NetworkService.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		C73C4F6E26ADF78B00AFC4F8 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				C73C4F7126ADF7CC00AFC4F8 /* Use Cases */,
+				C73C4F6F26ADF7B800AFC4F8 /* Repositories */,
+				C73C4F7026ADF7C300AFC4F8 /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		C73C4F6F26ADF7B800AFC4F8 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		C73C4F7026ADF7C300AFC4F8 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				C73C4FAD26AF12D000AFC4F8 /* ErrorType.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		C73C4F7126ADF7CC00AFC4F8 /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		C73C4F7226ADF81400AFC4F8 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		C773A39426ADB6C3006ECC34 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				C773A3A426ADB6C3006ECC34 /* RootViewController.swift */,
+				C73C4F6E26ADF78B00AFC4F8 /* Domain */,
+				C73C4F6B26ADF6EB00AFC4F8 /* Data */,
 				C73C4F3A26ADE01A00AFC4F8 /* Supporting Files */,
 				C773A3AE26ADB6C6006ECC34 /* Info.plist */,
 			);
@@ -266,9 +342,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C73C4FA126AE026500AFC4F8 /* NetworkService.swift in Sources */,
+				C73C4FAE26AF12D000AFC4F8 /* ErrorType.swift in Sources */,
+				C73C4F9C26AE017400AFC4F8 /* DataTransferService.swift in Sources */,
 				C773A3A526ADB6C3006ECC34 /* RootViewController.swift in Sources */,
 				C773A3A126ADB6C3006ECC34 /* AppDelegate.swift in Sources */,
 				C773A3A326ADB6C3006ECC34 /* SceneDelegate.swift in Sources */,
+				C73C4FA626AE035D00AFC4F8 /* DataTransferResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
