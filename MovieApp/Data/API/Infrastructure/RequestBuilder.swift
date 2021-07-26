@@ -10,11 +10,14 @@ import Foundation
 final class RequestBuilder {
     private var components: URLComponents
 
-    init(host: String = Bundle.main.serviceUrl) {
+    init(
+        host: String = Bundle.main.serviceUrl,
+        apiKey: String = Bundle.main.apiKey
+    ) {
         var components = URLComponents()
         components.scheme = "https"
         components.host = host
-        components.queryItems = []
+        components.queryItems = [.init(key: .apiKey, value: apiKey)]
         self.components = components
     }
 
@@ -29,8 +32,7 @@ final class RequestBuilder {
     }
 
     func build() -> URLRequest {
-        components.queryItems?.append(.init(key: .apiKey, value: Bundle.main.apiKey))
-        return URLRequest(url: components.url!)
+        URLRequest(url: components.url!)
     }
 
     enum Method {
