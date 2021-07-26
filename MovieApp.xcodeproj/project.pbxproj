@@ -217,26 +217,10 @@
 			isa = PBXGroup;
 			children = (
 				C73C4FF126AF73E700AFC4F8 /* MovieDTO.swift */,
-				C73C4FEF26AF73CB00AFC4F8 /* Popular */,
-				C73C4FF026AF73D300AFC4F8 /* Similar */,
-			);
-			path = Movies;
-			sourceTree = "<group>";
-		};
-		C73C4FEF26AF73CB00AFC4F8 /* Popular */ = {
-			isa = PBXGroup;
-			children = (
 				C73C4FFE26AF745A00AFC4F8 /* DefaultPopularMoviesRepository.swift */,
-			);
-			path = Popular;
-			sourceTree = "<group>";
-		};
-		C73C4FF026AF73D300AFC4F8 /* Similar */ = {
-			isa = PBXGroup;
-			children = (
 				C73C500326AF746A00AFC4F8 /* DefaultSimilarMoviesRepository.swift */,
 			);
-			path = Similar;
+			path = Movies;
 			sourceTree = "<group>";
 		};
 		C773A39426ADB6C3006ECC34 = {
