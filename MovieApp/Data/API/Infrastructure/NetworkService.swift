@@ -34,6 +34,6 @@ final class DefaultNetworkService: NetworkService {
             }
             // success
             callback(.success(data))
-        }
+        }.resume()
     }
 }

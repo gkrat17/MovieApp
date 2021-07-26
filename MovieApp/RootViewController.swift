@@ -8,24 +8,25 @@
 import UIKit
 
 class RootViewController: UINavigationController {
+    let popular = DefaultPopularMoviesRepository()
+    let similar = DefaultSimilarMoviesRepository()
+    let image = DefaultMovieImageRepository()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        let request = RequestBuilder()
-            .set(method: .popular)
-            .set(page: 1)
-            .build()
 
-        print(request)
+        popular.movies(params: .init(page: 1)) { result in
+            print("Popular:", result)
+        }
 
-        let request2 = RequestBuilder(host: Bundle.main.resourceUrl, apiKey: nil)
-            .set(method: .image(id: "/bZGAX8oMDm3Mo5i0ZPKh9G2OcaO.jpg"))
-            .build()
+        similar.movies(params: .init(movieId: 84958, page: 1)) { result in
+            print("Similar:", result)
+        }
 
-        print(request2)
-        print("")
+        image.image(id: "/bZGAX8oMDm3Mo5i0ZPKh9G2OcaO.jpg") { result in
+            print("Image:", result)
+        }
     }
 
 
