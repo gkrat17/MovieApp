@@ -20,7 +20,7 @@ enum ErrorType {
         switch self {
         case .invalidStatusCode(let httpCode): return "Invalid status code responded: \(httpCode)"
         case .notConnectedToInternet:          return "Not connected to internet"
-        case .networkError(let error):         return "Some network error occured: \(error.localizedDescription)"
+        case .networkError(let error):         return "Network error occured: \(error.localizedDescription)"
         case .responseNotFound:                return "Response not found"
         case .jsonParsingError:                return "JSON parsing error"
         case .default:                         return "Something went wrong"
