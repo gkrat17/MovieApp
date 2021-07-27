@@ -9,14 +9,19 @@ import Foundation
 
 protocol MoviesView: AnyObject {
     func show(error: String)
-    func reloadItems(at: [Int])
+    func insertItems(at indexPaths: [IndexPath])
+    func reloadItems(at indexPaths: [IndexPath])
 }
 
 protocol MoviesPresenter {
     func viewDidLoad()
+    func scrolledToTheEnd()
+    func numberOfItems() -> Int
+    func viewModel(at index: Int) -> Movie
+    func didSelectItem(at index: Int)
 }
 
-final class DefaultMoviesPresenter: MoviesPresenter {
+final class DefaultMoviesPresenter {
     private weak var view: MoviesView?
     private let navigator: MoviesNavigator
     private let useCase: PopularMoviesUseCase
@@ -33,10 +38,6 @@ final class DefaultMoviesPresenter: MoviesPresenter {
         self.view = view
         self.navigator = navigator
         self.useCase = useCase
-    }
-
-    func viewDidLoad() {
-        loadNextPage()
     }
 
     private func loadNextPage() {
@@ -60,8 +61,8 @@ final class DefaultMoviesPresenter: MoviesPresenter {
         let firstIndex = loadedMovies.count
         loadedMovies.append(contentsOf: movies)
 
-        let reloadIndices = (0..<movies.count).map { firstIndex + $0 }
-        view?.reloadItems(at: reloadIndices) // update view with loaded data, before fetching images
+        let insertIndexPaths = (0..<movies.count).map { IndexPath(row: firstIndex + $0, section: 0) }
+        view?.insertItems(at: insertIndexPaths) // update view with loaded data, before fetching images
 
         // start loading images
         for i in (0..<movies.count) {
@@ -78,14 +79,17 @@ final class DefaultMoviesPresenter: MoviesPresenter {
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let self = self else { return }
             self.useCase.execute(imageId: id) { [weak self] result in
-                // this callback is called in main thread
                 guard let self = self else { return }
                 switch result {
                 case .success(let image):
                     self.loadedMovies[index].image = image
-                    self.view?.reloadItems(at: [index])
+                    DispatchQueue.main.async {
+                        self.view?.reloadItems(at: [.init(item: index, section: 0)])
+                    }
                 case .failure:
-                    self.setDefaultImage(at: index)
+                    DispatchQueue.main.async {
+                        self.setDefaultImage(at: index)
+                    }
                 }
             }
         }
@@ -93,5 +97,27 @@ final class DefaultMoviesPresenter: MoviesPresenter {
 
     private func setDefaultImage(at index: Int) {
         
+    }
+}
+
+extension DefaultMoviesPresenter: MoviesPresenter {
+    func viewDidLoad() {
+        loadNextPage()
+    }
+
+    func scrolledToTheEnd() {
+        loadNextPage()
+    }
+    
+    func numberOfItems() -> Int {
+        loadedMovies.count
+    }
+
+    func viewModel(at index: Int) -> Movie {
+        loadedMovies[index]
+    }
+
+    func didSelectItem(at index: Int) {
+        // navigate to details
     }
 }

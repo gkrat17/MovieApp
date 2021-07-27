@@ -11,7 +11,7 @@ final class DetailsViewController: UIViewController {
     var presenter: DetailsPresenter!
 
     static func getInstance() -> DetailsViewController {
-        .init(nibName: "DetailsViewController", bundle: nil)
+        .init(nibName: className, bundle: nil)
     }
 
     override func viewDidLoad() {
