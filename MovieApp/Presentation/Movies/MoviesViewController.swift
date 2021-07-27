@@ -26,6 +26,11 @@ final class MoviesViewController: UIViewController {
 
         presenter.viewDidLoad()
     }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
 }
 
 extension MoviesViewController: MoviesView {
@@ -50,7 +55,7 @@ extension MoviesViewController: UICollectionViewDelegate {
 
 extension MoviesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        presenter.numberOfItems()
+        presenter.numberOfItems(in: section)
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -58,6 +63,14 @@ extension MoviesViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! MovieSummaryCell
         let model = presenter.viewModel(at: indexPath.row)
         cell.content.configure(from: model)
+
+        // check if load next page
+        if indexPath.row == presenter.numberOfItems(in: indexPath.section) - 1 {
+            DispatchQueue.main.async { [weak self] in // to quickly return the cell
+                self?.presenter.scrolledToTheEnd()
+            }
+        }
+
         return cell
     }
 }

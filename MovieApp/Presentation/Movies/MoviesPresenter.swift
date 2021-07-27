@@ -16,7 +16,7 @@ protocol MoviesView: AnyObject {
 protocol MoviesPresenter {
     func viewDidLoad()
     func scrolledToTheEnd()
-    func numberOfItems() -> Int
+    func numberOfItems(in section: Int) -> Int
     func viewModel(at index: Int) -> Movie
     func didSelectItem(at index: Int)
 }
@@ -108,8 +108,8 @@ extension DefaultMoviesPresenter: MoviesPresenter {
     func scrolledToTheEnd() {
         loadNextPage()
     }
-    
-    func numberOfItems() -> Int {
+
+    func numberOfItems(in section: Int) -> Int {
         loadedMovies.count
     }
 
