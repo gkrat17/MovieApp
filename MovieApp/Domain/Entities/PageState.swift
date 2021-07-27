@@ -8,7 +8,7 @@
 import Foundation
 
 class PageState {
-    private var _currentPageIndex: Int
+    private var currentPageIndex: Int
     let maxPageIndex: Int
     let itemsPerPage: Int
 
@@ -17,7 +17,7 @@ class PageState {
         maxPageIndex: Int,
         itemsPerPage: Int
     ) {
-        _currentPageIndex = initialPageIndex
+        currentPageIndex = initialPageIndex
         self.maxPageIndex = maxPageIndex
         self.itemsPerPage = itemsPerPage
     }
@@ -27,11 +27,11 @@ class PageState {
      if and only if it's less than or equal to *maxPageIndex*
      */
     func returnThenIncrement() -> Int? {
-        let toReturn = _currentPageIndex
+        let toReturn = currentPageIndex
         if toReturn > maxPageIndex {
             return nil
         }
-        _currentPageIndex += 1
+        currentPageIndex += 1
         return toReturn
     }
 }
