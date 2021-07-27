@@ -12,7 +12,7 @@ struct MovieDTO: DataTransferResponse {
         let results: [Entity]
 
         struct Entity: Codable {
-            let backdropPath: String
+            let backdropPath: String?
             let id: Int
             let name: String
             let overview: String
@@ -39,6 +39,7 @@ struct MovieDTO: DataTransferResponse {
             Movie(
                 movieId: $0.id,
                 imageId: $0.backdropPath,
+                image: nil,
                 name: $0.name,
                 overview: $0.overview,
                 averageRating: $0.voteAverage

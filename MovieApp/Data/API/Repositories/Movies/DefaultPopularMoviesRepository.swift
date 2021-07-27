@@ -15,6 +15,10 @@ final class DefaultPopularMoviesRepository: PopularMoviesRepository {
         self.dataTransferService = dataTransferService
     }
 
+    func initialPageState() -> PageState {
+        .init(initialPageIndex: 1, maxPageIndex: 500, itemsPerPage: 20)
+    }
+
     func movies(params: PopularMoviesParams,
                 callback: @escaping MoviesHandler) {
         let request = requestBuilder

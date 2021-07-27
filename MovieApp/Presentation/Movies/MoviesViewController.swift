@@ -20,4 +20,12 @@ final class MoviesViewController: UIViewController {
     }
 }
 
-extension MoviesViewController: MoviesView {}
+extension MoviesViewController: MoviesView {
+    func show(error: String) {
+        print(error)
+    }
+
+    func reloadItems(at: [IndexPath]) {
+        
+    }
+}

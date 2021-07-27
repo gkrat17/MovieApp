@@ -15,6 +15,10 @@ final class DefaultSimilarMoviesRepository: SimilarMoviesRepository {
         self.dataTransferService = dataTransferService
     }
 
+    func initialPageState() -> PageState {
+        .init(initialPageIndex: 1, maxPageIndex: 1000, itemsPerPage: 20)
+    }
+
     func movies(params: SimilarMoviesParams,
                 callback: @escaping MoviesHandler) {
         let request = requestBuilder

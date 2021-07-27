@@ -8,6 +8,8 @@
 import Foundation
 
 protocol SimilarMoviesRepository {
+    func initialPageState() -> PageState
+
     typealias MoviesHandler = (Result<[Movie], ErrorType>) -> Void
     func movies(params: SimilarMoviesParams, callback: @escaping MoviesHandler)
 }

@@ -9,7 +9,8 @@ import Foundation
 
 struct Movie {
     let movieId: MovieId
-    let imageId: ImageId
+    let imageId: ImageId?
+    var image: Data?
     let name: String
     let overview: String
     let averageRating: Double
