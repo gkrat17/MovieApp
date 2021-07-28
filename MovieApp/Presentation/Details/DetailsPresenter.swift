@@ -50,12 +50,11 @@ final class DefaultDetailsPresenter {
     private func loadNextPage() {
         guard let pageIndexToLoad = pageState.returnThenIncrement() else { return }
         useCase.execute(movieId: movie.movieId, page: pageIndexToLoad) { [weak self] result in
-            guard let self = self else { return }
             switch result {
             case .success(let movies):
-                self.handle(movies: movies)
+                self?.handle(movies: movies)
             case .failure(let error):
-                self.view?.show(error: error.errorMessage)
+                self?.view?.show(error: error.errorMessage)
             }
         }
     }
@@ -64,13 +63,9 @@ final class DefaultDetailsPresenter {
         let firstIndex = loadedSimilarMovies.count
         loadedSimilarMovies.append(contentsOf: movies)
 
-        // start loading images
         for i in (0..<movies.count) {
-            let index = firstIndex + i
             if let id = movies[i].imageId {
-                load(image: id, at: index)
-            } else {
-                insertWithDefaultImage(at: index)
+                load(image: id, at: firstIndex + i)
             }
         }
     }
@@ -78,24 +73,14 @@ final class DefaultDetailsPresenter {
     private func load(image id: Movie.ImageId, at index: Int) {
         DispatchQueue.global(qos: .background).async { [weak self] in
             self?.useCase.execute(imageId: id) { [weak self] result in
-                guard let self = self else { return }
-                switch result {
-                case .success(let image):
-                    self.loadedSimilarMovies[index].image = image
-                    DispatchQueue.main.async {
-                        self.view?.insertItems(at: [.init(item: index, section: 0)])
-                    }
-                case .failure:
-                    DispatchQueue.main.async {
-                        self.insertWithDefaultImage(at: index)
-                    }
+                if case let .success(image) = result {
+                    self?.loadedSimilarMovies[index].image = image
+                }
+                DispatchQueue.main.async { [weak self] in
+                    self?.view?.insertItems(at: [.init(item: index, section: 0)])
                 }
             }
         }
-    }
-
-    private func insertWithDefaultImage(at index: Int) {
-        
     }
 
     private func count() -> Int {
@@ -135,7 +120,7 @@ fileprivate extension Movie {
     var similarMovieViewModel: SimilarMovieViewModel {
         .init(
             name: name,
-            image: image ?? .init() // will not satisfy, but just in case...
+            image: image
         )
     }
 }

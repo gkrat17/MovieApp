@@ -43,12 +43,11 @@ final class DefaultMoviesPresenter {
     private func loadNextPage() {
         guard let pageIndexToLoad = pageState.returnThenIncrement() else { return }
         useCase.execute(page: pageIndexToLoad) { [weak self] result in
-            guard let self = self else { return }
             switch result {
             case .success(let movies):
-                self.handle(movies: movies)
+                self?.handle(movies: movies)
             case .failure(let error):
-                self.view?.show(error: error.errorMessage)
+                self?.view?.show(error: error.errorMessage)
             }
         }
     }
@@ -60,13 +59,9 @@ final class DefaultMoviesPresenter {
         let insertIndexPaths = (0..<movies.count).map { IndexPath(row: firstIndex + $0, section: 0) }
         view?.insertItems(at: insertIndexPaths) // update view with loaded data, before fetching images
 
-        // start loading images
         for i in (0..<movies.count) {
-            let index = firstIndex + i
             if let id = movies[i].imageId {
-                load(image: id, at: index)
-            } else {
-                reloadWithDefaultImage(at: index)
+                load(image: id, at: firstIndex + i)
             }
         }
     }
@@ -74,24 +69,14 @@ final class DefaultMoviesPresenter {
     private func load(image id: Movie.ImageId, at index: Int) {
         DispatchQueue.global(qos: .background).async { [weak self] in
             self?.useCase.execute(imageId: id) { [weak self] result in
-                guard let self = self else { return }
-                switch result {
-                case .success(let image):
-                    self.loadedMovies[index].image = image
-                    DispatchQueue.main.async {
-                        self.view?.reloadItems(at: [.init(item: index, section: 0)])
-                    }
-                case .failure:
-                    DispatchQueue.main.async {
-                        self.reloadWithDefaultImage(at: index)
+                if case let .success(image) = result {
+                    self?.loadedMovies[index].image = image
+                    DispatchQueue.main.async { [weak self] in
+                        self?.view?.reloadItems(at: [.init(item: index, section: 0)])
                     }
                 }
             }
         }
-    }
-
-    private func reloadWithDefaultImage(at index: Int) {
-        
     }
 
     private func count() -> Int {

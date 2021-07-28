@@ -9,5 +9,5 @@ import Foundation
 
 struct SimilarMovieViewModel {
     let name: String
-    let image: Data
+    let image: Data?
 }

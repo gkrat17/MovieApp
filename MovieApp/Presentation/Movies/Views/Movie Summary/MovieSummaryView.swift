@@ -17,6 +17,8 @@ final class MovieSummaryView: DefaultView {
         ratingLabel.text = model.rating
         if let image = model.image {
             imageView.image = UIImage(data: image)
+        } else {
+            // set default image
         }
     }
 }
