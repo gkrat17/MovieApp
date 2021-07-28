@@ -41,11 +41,7 @@ final class DefaultMoviesPresenter {
     }
 
     private func loadNextPage() {
-        guard let pageIndexToLoad = pageState.returnThenIncrement()
-        else {
-            // do nothing
-            return
-        }
+        guard let pageIndexToLoad = pageState.returnThenIncrement() else { return }
         useCase.execute(page: pageIndexToLoad) { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -70,15 +66,14 @@ final class DefaultMoviesPresenter {
             if let id = movies[i].imageId {
                 load(image: id, at: index)
             } else {
-                setDefaultImage(at: index)
+                reloadWithDefaultImage(at: index)
             }
         }
     }
 
     private func load(image id: Movie.ImageId, at index: Int) {
         DispatchQueue.global(qos: .background).async { [weak self] in
-            guard let self = self else { return }
-            self.useCase.execute(imageId: id) { [weak self] result in
+            self?.useCase.execute(imageId: id) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(let image):
@@ -88,14 +83,14 @@ final class DefaultMoviesPresenter {
                     }
                 case .failure:
                     DispatchQueue.main.async {
-                        self.setDefaultImage(at: index)
+                        self.reloadWithDefaultImage(at: index)
                     }
                 }
             }
         }
     }
 
-    private func setDefaultImage(at index: Int) {
+    private func reloadWithDefaultImage(at index: Int) {
         
     }
 

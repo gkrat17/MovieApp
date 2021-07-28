@@ -21,7 +21,15 @@ final class DetailsViewController: UIViewController {
 }
 
 extension DetailsViewController: DetailsView {
+    func show(error: String) {
+        //
+    }
+
     func updateDetails(from movie: Movie) {
-        
+        //
+    }
+
+    func insertItems(at indexPaths: [IndexPath]) {
+        //
     }
 }
