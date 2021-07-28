@@ -11,6 +11,7 @@ protocol DetailsView: AnyObject {
     func show(error: String)
     func updateDetails(from movie: Movie)
     func insertItems(at indexPaths: [IndexPath])
+    func reloadItems(at indexPaths: [IndexPath])
 }
 
 protocol DetailsPresenter {
@@ -63,6 +64,9 @@ final class DefaultDetailsPresenter {
         let firstIndex = loadedSimilarMovies.count
         loadedSimilarMovies.append(contentsOf: movies)
 
+        let insertIndexPaths = (0..<movies.count).map { IndexPath(row: firstIndex + $0, section: 0) }
+        view?.insertItems(at: insertIndexPaths) // update similar movies with loaded data, before fetching images
+
         for i in (0..<movies.count) {
             if let id = movies[i].imageId {
                 load(image: id, at: firstIndex + i)
@@ -75,9 +79,9 @@ final class DefaultDetailsPresenter {
             self?.useCase.execute(imageId: id) { [weak self] result in
                 if case let .success(image) = result {
                     self?.loadedSimilarMovies[index].image = image
-                }
-                DispatchQueue.main.async { [weak self] in
-                    self?.view?.insertItems(at: [.init(item: index, section: 0)])
+                    DispatchQueue.main.async { [weak self] in
+                        self?.view?.reloadItems(at: [.init(item: index, section: 0)])
+                    }
                 }
             }
         }

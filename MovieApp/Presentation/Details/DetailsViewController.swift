@@ -14,6 +14,9 @@ final class DetailsViewController: UIViewController {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var overviewTextLabel: UILabel!
+    @IBOutlet private weak var collectionView: UICollectionView!
+
+    typealias SimilarMovieCell = DefaultCell<SimilarMovieView>
 
     static func getInstance() -> DetailsViewController {
         .init(nibName: className, bundle: nil)
@@ -21,13 +24,30 @@ final class DetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        collectionView.register(SimilarMovieCell.self,
+                                forCellWithReuseIdentifier: SimilarMovieCell.identifier)
+
         presenter.viewDidLoad()
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            let current = layout.scrollDirection
+            layout.scrollDirection = current == .vertical ? .horizontal : .vertical
+        }
+
+        coordinator.animate(alongsideTransition: { context in
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        }, completion: nil)
     }
 }
 
 extension DetailsViewController: DetailsView {
     func show(error: String) {
-        //
+        print(error)
     }
 
     func updateDetails(from movie: Movie) {
@@ -43,6 +63,63 @@ extension DetailsViewController: DetailsView {
     }
 
     func insertItems(at indexPaths: [IndexPath]) {
-        //
+        collectionView.insertItems(at: indexPaths)
+    }
+
+    func reloadItems(at indexPaths: [IndexPath]) {
+        collectionView.reloadItems(at: indexPaths)
+    }
+}
+
+extension DetailsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.didSelectItem(at: indexPath)
+    }
+}
+
+extension DetailsViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        presenter.numberOfItems(in: section)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let identifier = SimilarMovieCell.identifier
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! SimilarMovieCell
+        let model = presenter.viewModel(at: indexPath)
+        cell.content.confugure(from: model)
+
+        // check if load next page
+        if indexPath.row == presenter.numberOfItems(in: indexPath.section) - 1 {
+            DispatchQueue.main.async { [weak self] in // to quickly return the cell
+                self?.presenter.scrolledToTheEnd()
+            }
+        }
+
+        return cell
+    }
+}
+
+extension DetailsViewController: UICollectionViewDelegateFlowLayout {
+
+    var collectionViewInset: CGFloat { 10 }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        let inset: CGFloat = collectionViewInset
+        return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let device = UIDevice.current
+        let orientation = device.orientation
+
+        if orientation == .landscapeLeft || orientation == .landscapeRight {
+            return .init(width: collectionView.frame.width, height: 128)
+        } else {
+            return .init(width: 128, height: collectionView.frame.height)
+        }
     }
 }

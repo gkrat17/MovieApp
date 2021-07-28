@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="MovieApp" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="7hD-mt-qKi" id="rko-ef-01e"/>
                 <outlet property="imageView" destination="xZ5-fF-2W7" id="Zhh-55-qzm"/>
                 <outlet property="nameLabel" destination="doX-y2-Myk" id="dUk-iu-Lhu"/>
                 <outlet property="overviewTextLabel" destination="Vss-pm-2bu" id="vkz-2z-j2F"/>
@@ -93,7 +94,49 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mRt-qd-Nfj" userLabel="Similars Super View">
                     <rect key="frame" x="0.0" y="592" width="414" height="270"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cb1-RS-DKq" userLabel="Similars View">
+                            <rect key="frame" x="16" y="16" width="382" height="238"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Similar Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZp-RZ-rSp" userLabel="Similars Title Label">
+                                    <rect key="frame" x="16" y="16" width="110" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7hD-mt-qKi">
+                                    <rect key="frame" x="0.0" y="53" width="382" height="169"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YdW-rR-2JC">
+                                        <size key="itemSize" width="128" height="128"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="CHR-UM-wCl"/>
+                                        <outlet property="delegate" destination="-1" id="LsH-El-kCM"/>
+                                    </connections>
+                                </collectionView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                            <constraints>
+                                <constraint firstItem="7hD-mt-qKi" firstAttribute="top" secondItem="mZp-RZ-rSp" secondAttribute="bottom" constant="16" id="AMj-VF-LlG"/>
+                                <constraint firstAttribute="bottom" secondItem="7hD-mt-qKi" secondAttribute="bottom" constant="16" id="D4p-cC-lbn"/>
+                                <constraint firstItem="mZp-RZ-rSp" firstAttribute="top" secondItem="cb1-RS-DKq" secondAttribute="top" constant="16" id="G65-xs-Q3G"/>
+                                <constraint firstItem="7hD-mt-qKi" firstAttribute="leading" secondItem="cb1-RS-DKq" secondAttribute="leading" id="Twd-rq-JwM"/>
+                                <constraint firstItem="mZp-RZ-rSp" firstAttribute="leading" secondItem="cb1-RS-DKq" secondAttribute="leading" constant="16" id="j9b-hQ-xdA"/>
+                                <constraint firstAttribute="trailing" secondItem="7hD-mt-qKi" secondAttribute="trailing" id="lWe-1m-nFm"/>
+                            </constraints>
+                        </view>
+                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="cb1-RS-DKq" firstAttribute="top" secondItem="mRt-qd-Nfj" secondAttribute="top" constant="16" id="RVq-0W-mo7"/>
+                        <constraint firstAttribute="bottom" secondItem="cb1-RS-DKq" secondAttribute="bottom" constant="16" id="cYA-0X-JQl"/>
+                        <constraint firstAttribute="trailing" secondItem="cb1-RS-DKq" secondAttribute="trailing" constant="16" id="dBY-Sh-zDj"/>
+                        <constraint firstItem="cb1-RS-DKq" firstAttribute="leading" secondItem="mRt-qd-Nfj" secondAttribute="leading" constant="16" id="ugd-4N-yDI"/>
+                    </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -141,6 +184,9 @@
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
