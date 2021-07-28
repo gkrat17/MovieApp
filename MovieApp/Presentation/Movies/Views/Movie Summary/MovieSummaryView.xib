@@ -14,6 +14,7 @@
                 <outlet property="contentView" destination="iN0-l3-epB" id="cU7-e1-yY1"/>
                 <outlet property="imageView" destination="3Rn-t9-g7v" id="VfL-eo-Q3w"/>
                 <outlet property="nameLabel" destination="rR5-4l-nBq" id="Kjx-dm-QU6"/>
+                <outlet property="ratingLabel" destination="eKj-NL-gFN" id="WrZ-RZ-YdI"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,6 +24,12 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rR5-4l-nBq" userLabel="Name Label">
                     <rect key="frame" x="16" y="16" width="45" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKj-NL-gFN" userLabel="Rating Label">
+                    <rect key="frame" x="16" y="53" width="49" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -39,9 +46,11 @@
             <color key="backgroundColor" systemColor="systemBlueColor"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3Rn-t9-g7v" secondAttribute="trailing" constant="16" id="ULr-f1-Iaz"/>
+                <constraint firstItem="eKj-NL-gFN" firstAttribute="top" secondItem="rR5-4l-nBq" secondAttribute="bottom" constant="16" id="Wjo-VP-zj0"/>
                 <constraint firstItem="rR5-4l-nBq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="jKw-c3-ARd"/>
                 <constraint firstItem="rR5-4l-nBq" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="lsg-ia-c9H"/>
                 <constraint firstItem="3Rn-t9-g7v" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="nCT-DB-xDm"/>
+                <constraint firstItem="eKj-NL-gFN" firstAttribute="leading" secondItem="rR5-4l-nBq" secondAttribute="leading" id="wnp-Hu-MZs"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="76.799999999999997" y="-167.31634182908547"/>
