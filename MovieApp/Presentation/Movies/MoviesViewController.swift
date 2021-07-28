@@ -49,7 +49,7 @@ extension MoviesViewController: MoviesView {
 
 extension MoviesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.didSelectItem(at: indexPath.row)
+        presenter.didSelectItem(at: indexPath)
     }
 }
 
@@ -61,7 +61,7 @@ extension MoviesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let identifier = MovieSummaryCell.identifier
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! MovieSummaryCell
-        let model = presenter.viewModel(at: indexPath.row)
+        let model = presenter.viewModel(at: indexPath)
         cell.content.configure(from: model)
 
         // check if load next page

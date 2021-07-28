@@ -12,9 +12,9 @@ final class MovieSummaryView: DefaultView {
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var imageView: UIImageView!
 
-    func configure(from movie: Movie) {
+    func configure(from movie: MovieSummaryViewModel) {
         nameLabel.text = movie.name
-        ratingLabel.text = "\(movie.averageRating)"
+        ratingLabel.text = movie.rating
         if let image = movie.image {
             imageView.image = UIImage(data: image)
         }

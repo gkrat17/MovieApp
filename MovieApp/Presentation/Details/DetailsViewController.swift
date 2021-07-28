@@ -20,4 +20,8 @@ final class DetailsViewController: UIViewController {
     }
 }
 
-extension DetailsViewController: DetailsView {}
+extension DetailsViewController: DetailsView {
+    func updateDetails(from movie: Movie) {
+        
+    }
+}

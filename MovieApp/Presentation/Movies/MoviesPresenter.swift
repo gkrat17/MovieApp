@@ -17,8 +17,8 @@ protocol MoviesPresenter {
     func viewDidLoad()
     func scrolledToTheEnd()
     func numberOfItems(in section: Int) -> Int
-    func viewModel(at index: Int) -> Movie
-    func didSelectItem(at index: Int)
+    func viewModel(at indexPath: IndexPath) -> MovieSummaryViewModel
+    func didSelectItem(at indexPath: IndexPath)
 }
 
 final class DefaultMoviesPresenter {
@@ -98,6 +98,14 @@ final class DefaultMoviesPresenter {
     private func setDefaultImage(at index: Int) {
         
     }
+
+    private func count() -> Int {
+        loadedMovies.count
+    }
+
+    private func movie(at index: Int) -> Movie {
+        loadedMovies[index]
+    }
 }
 
 extension DefaultMoviesPresenter: MoviesPresenter {
@@ -110,14 +118,25 @@ extension DefaultMoviesPresenter: MoviesPresenter {
     }
 
     func numberOfItems(in section: Int) -> Int {
-        loadedMovies.count
+        count()
     }
 
-    func viewModel(at index: Int) -> Movie {
-        loadedMovies[index]
+    func viewModel(at indexPath: IndexPath) -> MovieSummaryViewModel {
+        movie(at: indexPath.row).summaryViewModel
     }
 
-    func didSelectItem(at index: Int) {
-        navigator.navigate2Details(with: .init(movie: viewModel(at: index)))
+    func didSelectItem(at indexPath: IndexPath) {
+        let model = movie(at: indexPath.row)
+        navigator.navigate2Details(with: .init(movie: model))
+    }
+}
+
+fileprivate extension Movie {
+    var summaryViewModel: MovieSummaryViewModel {
+        .init(
+            name: name,
+            rating: "\(averageRating)",
+            image: image
+        )
     }
 }

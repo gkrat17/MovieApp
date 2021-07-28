@@ -1,40 +1,40 @@
 //
-//  PopularMoviesUseCase.swift
+//  SimilarMoviesUseCase.swift
 //  MovieApp
 //
-//  Created by Giorgi Kratsashvili on 7/27/21.
+//  Created by Giorgi Kratsashvili on 7/28/21.
 //
 
 import Foundation
 
-protocol PopularMoviesUseCase {
+protocol SimilarMoviesUseCase {
     func initialPageState() -> PageState
 
     typealias MoviesHandler = (Result<[Movie], ErrorType>) -> Void
-    func execute(page: Int, callback: @escaping MoviesHandler)
+    func execute(movieId: Movie.MovieId, page: Int, callback: @escaping MoviesHandler)
 
     typealias ImageHandler = (Result<Data, ErrorType>) -> Void
     func execute(imageId: Movie.ImageId, callback: @escaping ImageHandler)
 }
 
-final class DefaultPopularMoviesUseCase: PopularMoviesUseCase {
-    let popular: PopularMoviesRepository
+final class DefaultSimilarMoviesUseCase: SimilarMoviesUseCase {
+    let similar: SimilarMoviesRepository
     let image: MovieImageRepository
 
     init(
-        popular: PopularMoviesRepository = DefaultPopularMoviesRepository(),
+        similar: SimilarMoviesRepository = DefaultSimilarMoviesRepository(),
         image: MovieImageRepository = DefaultMovieImageRepository()
     ) {
-        self.popular = popular
+        self.similar = similar
         self.image = image
     }
 
     func initialPageState() -> PageState {
-        popular.initialPageState()
+        similar.initialPageState()
     }
 
-    func execute(page: Int, callback: @escaping MoviesHandler) {
-        popular.movies(params: .init(page: page), callback: callback)
+    func execute(movieId: Movie.MovieId, page: Int, callback: @escaping MoviesHandler) {
+        similar.movies(params: .init(movieId: movieId, page: page), callback: callback)
     }
 
     func execute(imageId: Movie.ImageId, callback: @escaping ImageHandler) {
