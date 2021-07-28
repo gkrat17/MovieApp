@@ -10,6 +10,11 @@ import UIKit
 final class DetailsViewController: UIViewController {
     var presenter: DetailsPresenter!
 
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var ratingLabel: UILabel!
+    @IBOutlet private weak var overviewTextLabel: UILabel!
+
     static func getInstance() -> DetailsViewController {
         .init(nibName: className, bundle: nil)
     }
@@ -26,7 +31,15 @@ extension DetailsViewController: DetailsView {
     }
 
     func updateDetails(from movie: Movie) {
-        //
+        imageView.image = {
+            if let image = movie.image {
+                return UIImage(data: image)
+            }
+            return UIImage(named: "Movie")
+        }()
+        nameLabel.text = movie.name
+        ratingLabel.text = "\(movie.averageRating)"
+        overviewTextLabel.text = movie.overview
     }
 
     func insertItems(at indexPaths: [IndexPath]) {
