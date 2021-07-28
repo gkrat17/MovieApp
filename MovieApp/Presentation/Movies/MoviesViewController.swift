@@ -89,14 +89,14 @@ extension MoviesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var width: CGFloat = UIScreen.main.bounds.width
+        var width: CGFloat = UIScreen.main.bounds.width - view.safeAreaInsets.left - view.safeAreaInsets.right
         let height: CGFloat = 120
 
         let device = UIDevice.current
         let orientation = device.orientation
         let idiom = device.userInterfaceIdiom
 
-        if (orientation == .landscapeLeft || orientation == .landscapeRight) && idiom == .pad {
+        if orientation == .landscapeLeft || orientation == .landscapeRight || idiom == .pad {
             width /= 2
         }
         width -= 2 * collectionViewInset
