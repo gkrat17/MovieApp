@@ -1,20 +1,18 @@
 //
-//  MovieSummaryView.swift
+//  SimilarMovieView.swift
 //  MovieApp
 //
-//  Created by Giorgi Kratsashvili on 7/27/21.
+//  Created by Giorgi Kratsashvili on 7/28/21.
 //
 
 import UIKit
 
-final class MovieSummaryView: DefaultView {
+final class SimilarMovieView: DefaultView {
     @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var imageView: UIImageView!
 
-    func configure(from model: MovieSummaryViewModel) {
+    func confugure(from model: SimilarMovieViewModel) {
         nameLabel.text = model.name
-        ratingLabel.text = model.rating
         imageView.image = {
             if let image = model.image {
                 return UIImage(data: image)

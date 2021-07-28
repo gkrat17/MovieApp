@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SimilarMovieView" customModule="MovieApp" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Rd1-us-17R"/>
+                <outlet property="imageView" destination="0g2-iF-SAR" id="Ssk-jW-emD"/>
+                <outlet property="nameLabel" destination="jLX-9p-91M" id="xG8-LW-ZMS"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0g2-iF-SAR">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLX-9p-91M" userLabel="Name Label">
+                    <rect key="frame" x="8" y="99" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="0g2-iF-SAR" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Baq-5P-QkP"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0g2-iF-SAR" secondAttribute="trailing" id="E2e-Yw-3OB"/>
+                <constraint firstItem="0g2-iF-SAR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="KXX-8i-IcF"/>
+                <constraint firstItem="jLX-9p-91M" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="gP3-tE-irk"/>
+                <constraint firstItem="0g2-iF-SAR" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="qyR-ZJ-rrZ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jLX-9p-91M" secondAttribute="bottom" constant="8" id="uno-Of-D6d"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="77.599999999999994" y="-116.04197901049476"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
