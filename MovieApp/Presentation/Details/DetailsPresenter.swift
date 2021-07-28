@@ -13,7 +13,9 @@ protocol DetailsPresenter {
     func viewDidLoad()
 }
 
-struct DetailsParams {}
+struct DetailsParams {
+    let movie: Movie
+}
 
 final class DefaultDetailsPresenter: DetailsPresenter {
     private let params: DetailsParams

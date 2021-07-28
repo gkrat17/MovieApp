@@ -7,12 +7,25 @@
 
 import Foundation
 
-protocol MoviesNavigator {}
+protocol MoviesNavigator {
+    func navigate2Details(with params: DetailsParams)
+}
 
 final class DefaultMoviesNavigator: MoviesNavigator {
     private weak var vc: MoviesViewController?
+    private let detailsFactory: DetailsFactory
 
-    init(vc: MoviesViewController) {
+    init(
+        vc: MoviesViewController,
+        detailsFactory: DetailsFactory = DefaultDetailsFactory()
+    ) {
         self.vc = vc
+        self.detailsFactory = detailsFactory
+    }
+
+    func navigate2Details(with params: DetailsParams) {
+        guard let parent = vc else { return }
+        let vc = detailsFactory.make(with: params)
+        parent.navigationController?.pushViewController(vc, animated: true)
     }
 }

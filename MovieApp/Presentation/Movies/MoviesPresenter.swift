@@ -118,6 +118,6 @@ extension DefaultMoviesPresenter: MoviesPresenter {
     }
 
     func didSelectItem(at index: Int) {
-        // navigate to details
+        navigator.navigate2Details(with: .init(movie: viewModel(at: index)))
     }
 }
