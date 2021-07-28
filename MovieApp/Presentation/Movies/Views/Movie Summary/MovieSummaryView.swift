@@ -12,10 +12,10 @@ final class MovieSummaryView: DefaultView {
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var imageView: UIImageView!
 
-    func configure(from movie: MovieSummaryViewModel) {
-        nameLabel.text = movie.name
-        ratingLabel.text = movie.rating
-        if let image = movie.image {
+    func configure(from model: MovieSummaryViewModel) {
+        nameLabel.text = model.name
+        ratingLabel.text = model.rating
+        if let image = model.image {
             imageView.image = UIImage(data: image)
         }
     }
