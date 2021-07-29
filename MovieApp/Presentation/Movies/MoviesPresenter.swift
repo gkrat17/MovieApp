@@ -11,6 +11,7 @@ protocol MoviesView: AnyObject {
     func show(error: String)
     func insertItems(at indexPaths: [IndexPath])
     func reloadItems(at indexPaths: [IndexPath])
+    func stopLoader()
 }
 
 protocol MoviesPresenter {
@@ -43,6 +44,7 @@ final class DefaultMoviesPresenter {
     private func loadNextPage() {
         guard let pageIndexToLoad = pageState.returnThenIncrement() else { return }
         useCase.execute(page: pageIndexToLoad) { [weak self] result in
+            self?.view?.stopLoader()
             switch result {
             case .success(let movies):
                 self?.handle(movies: movies)

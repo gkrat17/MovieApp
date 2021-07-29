@@ -11,6 +11,7 @@ final class MoviesViewController: UIViewController {
     var presenter: MoviesPresenter!
 
     @IBOutlet private weak var collectionView: UICollectionView!
+    private var indicator: UIActivityIndicatorView? = .init(style: .large)
 
     typealias MovieSummaryCell = DefaultCell<MovieSummaryView>
 
@@ -26,7 +27,27 @@ final class MoviesViewController: UIViewController {
         collectionView.register(MovieSummaryCell.self,
                                 forCellWithReuseIdentifier: MovieSummaryCell.identifier)
 
+        startIndicator()
+
         presenter.viewDidLoad()
+    }
+
+    private func startIndicator() {
+        guard let indicator = indicator else { return }
+
+        view.addSubview(indicator)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            indicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+
+        indicator.startAnimating()
+    }
+
+    private func stopIndicator() {
+        indicator?.stopAnimating()
+        indicator = nil
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -49,6 +70,10 @@ extension MoviesViewController: MoviesView {
 
     func insertItems(at indexPaths: [IndexPath]) {
         collectionView.insertItems(at: indexPaths)
+    }
+
+    func stopLoader() {
+        stopIndicator()
     }
 }
 
