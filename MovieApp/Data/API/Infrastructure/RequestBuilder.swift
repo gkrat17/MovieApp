@@ -19,8 +19,6 @@ final class RequestBuilder {
         components.host = host
         if let apiKey = apiKey {
             components.queryItems = [.init(key: .apiKey, value: apiKey)]
-        } else {
-            components.queryItems = []
         }
         self.components = components
     }
@@ -31,6 +29,9 @@ final class RequestBuilder {
     }
 
     func set(page: Int) -> Self {
+        if components.queryItems == nil {
+            components.queryItems = []
+        }
         components.queryItems?.append(.init(key: .page, value: "\(page)"))
         return self
     }
