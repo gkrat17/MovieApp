@@ -45,7 +45,10 @@ final class DetailsViewController: UIViewController {
         layout?.scrollDirection = isCompact ? .horizontal : .vertical
     }
 
-    private var isCompact: Bool { traitCollection.horizontalSizeClass == .compact }
+    private var isCompact: Bool {
+        traitCollection.horizontalSizeClass == .compact &&
+        traitCollection.verticalSizeClass != .compact
+    }
 }
 
 extension DetailsViewController: DetailsView {
