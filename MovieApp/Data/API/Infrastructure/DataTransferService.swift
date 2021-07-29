@@ -52,7 +52,7 @@ final class DefaultDataTransferService: DataTransferService {
         callback: @escaping (Result<Data, ErrorType>) -> Void
     ) {
         performTaskWrapper(request, respondQueue, callback) { data in
-            callback(.success(data))
+            respondQueue.async { callback(.success(data)) }
         }
     }
 

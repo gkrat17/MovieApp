@@ -47,6 +47,7 @@ final class MoviesViewController: UIViewController {
 
     private func stopIndicator() {
         indicator?.stopAnimating()
+        indicator?.removeFromSuperview()
         indicator = nil
     }
 
