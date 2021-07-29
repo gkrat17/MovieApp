@@ -28,21 +28,24 @@ final class DetailsViewController: UIViewController {
         collectionView.register(SimilarMovieCell.self,
                                 forCellWithReuseIdentifier: SimilarMovieCell.identifier)
 
+        refreshScrollDirection()
+
         presenter.viewDidLoad()
     }
 
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
 
-        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            let current = layout.scrollDirection
-            layout.scrollDirection = current == .vertical ? .horizontal : .vertical
-        }
-
-        coordinator.animate(alongsideTransition: { context in
-            self.collectionView.collectionViewLayout.invalidateLayout()
-        }, completion: nil)
+        refreshScrollDirection()
+        self.collectionView.collectionViewLayout.invalidateLayout()
     }
+
+    private func refreshScrollDirection() {
+        let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        layout?.scrollDirection = isCompact ? .horizontal : .vertical
+    }
+
+    private var isCompact: Bool { traitCollection.horizontalSizeClass == .compact }
 }
 
 extension DetailsViewController: DetailsView {
@@ -113,13 +116,7 @@ extension DetailsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let device = UIDevice.current
-        let orientation = device.orientation
-
-        if orientation == .landscapeLeft || orientation == .landscapeRight {
-            return .init(width: collectionView.frame.width, height: 128)
-        } else {
-            return .init(width: 128, height: collectionView.frame.height)
-        }
+        return isCompact ? .init(width: 128, height: collectionView.frame.height) :
+                           .init(width: collectionView.frame.width, height: 128)
     }
 }
