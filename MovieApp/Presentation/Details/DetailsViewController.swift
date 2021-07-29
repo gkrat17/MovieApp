@@ -101,16 +101,6 @@ extension DetailsViewController: UICollectionViewDataSource {
 }
 
 extension DetailsViewController: UICollectionViewDelegateFlowLayout {
-
-    var collectionViewInset: CGFloat { 10 }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        let inset: CGFloat = collectionViewInset
-        return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
-    }
-
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {

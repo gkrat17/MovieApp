@@ -93,7 +93,7 @@ extension MoviesViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         var width: CGFloat = UIApplication.shared.windows[0].frame.width - view.safeAreaInsets.left - view.safeAreaInsets.right
-        let height: CGFloat = 120
+        let height: CGFloat = 128
 
         if !isCompact { width /= 2 }
         width -= 2 * collectionViewInset
