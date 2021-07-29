@@ -34,16 +34,11 @@ final class MoviesViewController: UIViewController {
             self.collectionView.collectionViewLayout.invalidateLayout()
         }, completion: nil)
     }
-
-    private var isCompact: Bool {
-        traitCollection.horizontalSizeClass == .compact &&
-        traitCollection.verticalSizeClass != .compact
-    }
 }
 
 extension MoviesViewController: MoviesView {
     func show(error: String) {
-        print(error)
+        showAlert(title: error)
     }
 
     func reloadItems(at indexPaths: [IndexPath]) {

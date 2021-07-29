@@ -51,6 +51,7 @@
 		C773A3AD26ADB6C6006ECC34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C773A3AB26ADB6C6006ECC34 /* LaunchScreen.storyboard */; };
 		C773A3B826ADB6C6006ECC34 /* MovieAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773A3B726ADB6C6006ECC34 /* MovieAppTests.swift */; };
 		C773A3C326ADB6C6006ECC34 /* MovieAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773A3C226ADB6C6006ECC34 /* MovieAppUITests.swift */; };
+		C7EE5F9926B2DB21001AC16F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EE5F9826B2DB21001AC16F /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		C773A3BE26ADB6C6006ECC34 /* MovieAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C773A3C226ADB6C6006ECC34 /* MovieAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAppUITests.swift; sourceTree = "<group>"; };
 		C773A3C426ADB6C6006ECC34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7EE5F9826B2DB21001AC16F /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 			children = (
 				C73C4FC526AF58C900AFC4F8 /* Bundle+Extension.swift */,
 				C73C50A126B0849C00AFC4F8 /* NSObject+Extension.swift */,
+				C7EE5F9826B2DB21001AC16F /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7EE5F9926B2DB21001AC16F /* UIViewController+Extension.swift in Sources */,
 				C73C4FDB26AF71F500AFC4F8 /* SimilarMoviesRepository.swift in Sources */,
 				C73C505E26B0356B00AFC4F8 /* PageState.swift in Sources */,
 				C731E93026B157F500DB7BDA /* SimilarMoviesUseCase.swift in Sources */,

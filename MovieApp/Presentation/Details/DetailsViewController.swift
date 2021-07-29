@@ -44,16 +44,11 @@ final class DetailsViewController: UIViewController {
         let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         layout?.scrollDirection = isCompact ? .horizontal : .vertical
     }
-
-    private var isCompact: Bool {
-        traitCollection.horizontalSizeClass == .compact &&
-        traitCollection.verticalSizeClass != .compact
-    }
 }
 
 extension DetailsViewController: DetailsView {
     func show(error: String) {
-        print(error)
+        showAlert(title: error)
     }
 
     func updateDetails(from movie: Movie) {
