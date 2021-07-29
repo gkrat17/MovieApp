@@ -32,33 +32,35 @@
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xZ5-fF-2W7">
                                     <rect key="frame" x="0.0" y="0.0" width="475" height="237.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" systemColor="separatorColor"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doX-y2-Myk" userLabel="Name Label">
-                                    <rect key="frame" x="16" y="201" width="378" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doX-y2-Myk" userLabel="Name Label">
+                                    <rect key="frame" x="16" y="195" width="371" height="26.5"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eB-mD-Bmo" userLabel="Rating Label">
-                                    <rect key="frame" x="410" y="200.5" width="49" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <rect key="frame" x="403" y="197.5" width="56" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCI-3h-mi4" userLabel="Overview Title Label">
-                                    <rect key="frame" x="16" y="245.5" width="72" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <rect key="frame" x="16" y="245.5" width="86.5" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Overview Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vss-pm-2bu" userLabel="Overview Text Label">
-                                    <rect key="frame" x="16" y="274.5" width="443" height="184.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <rect key="frame" x="16" y="277.5" width="443" height="181.5"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="xZ5-fF-2W7" firstAttribute="leading" secondItem="9jV-PY-gZH" secondAttribute="leading" id="1GI-h0-Efi"/>
                                 <constraint firstAttribute="trailing" secondItem="Vss-pm-2bu" secondAttribute="trailing" constant="16" id="Hz4-Vn-Dnn"/>
@@ -99,13 +101,13 @@
                             <rect key="frame" x="16" y="16" width="475" height="221.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Similar Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZp-RZ-rSp" userLabel="Similars Title Label">
-                                    <rect key="frame" x="16" y="16" width="110" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <rect key="frame" x="16" y="16" width="148.5" height="25.5"/>
+                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7hD-mt-qKi">
-                                    <rect key="frame" x="0.0" y="53" width="475" height="152.5"/>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7hD-mt-qKi">
+                                    <rect key="frame" x="8" y="57.5" width="459" height="148"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YdW-rR-2JC">
                                         <size key="itemSize" width="128" height="128"/>
@@ -119,14 +121,14 @@
                                     </connections>
                                 </collectionView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                            <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="7hD-mt-qKi" firstAttribute="top" secondItem="mZp-RZ-rSp" secondAttribute="bottom" constant="16" id="AMj-VF-LlG"/>
                                 <constraint firstAttribute="bottom" secondItem="7hD-mt-qKi" secondAttribute="bottom" constant="16" id="D4p-cC-lbn"/>
                                 <constraint firstItem="mZp-RZ-rSp" firstAttribute="top" secondItem="cb1-RS-DKq" secondAttribute="top" constant="16" id="G65-xs-Q3G"/>
-                                <constraint firstItem="7hD-mt-qKi" firstAttribute="leading" secondItem="cb1-RS-DKq" secondAttribute="leading" id="Twd-rq-JwM"/>
+                                <constraint firstItem="7hD-mt-qKi" firstAttribute="leading" secondItem="cb1-RS-DKq" secondAttribute="leading" constant="8" id="Twd-rq-JwM"/>
                                 <constraint firstItem="mZp-RZ-rSp" firstAttribute="leading" secondItem="cb1-RS-DKq" secondAttribute="leading" constant="16" id="j9b-hQ-xdA"/>
-                                <constraint firstAttribute="trailing" secondItem="7hD-mt-qKi" secondAttribute="trailing" id="lWe-1m-nFm"/>
+                                <constraint firstAttribute="trailing" secondItem="7hD-mt-qKi" secondAttribute="trailing" constant="8" id="lWe-1m-nFm"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -197,14 +199,17 @@
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

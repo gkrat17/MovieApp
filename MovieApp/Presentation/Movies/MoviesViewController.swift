@@ -21,6 +21,8 @@ final class MoviesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Movies"
+
         collectionView.register(MovieSummaryCell.self,
                                 forCellWithReuseIdentifier: MovieSummaryCell.identifier)
 

@@ -22,4 +22,11 @@ final class MovieSummaryView: DefaultView {
             return UIImage(named: "Movie")
         }()
     }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = 16
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.separator.cgColor
+    }
 }

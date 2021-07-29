@@ -21,31 +21,58 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0g2-iF-SAR">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEw-mw-ek7" userLabel="Content View">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLX-9p-91M" userLabel="Name Label">
-                    <rect key="frame" x="8" y="99" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0g2-iF-SAR">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                            <color key="tintColor" systemColor="separatorColor"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLX-9p-91M" userLabel="Name Label">
+                            <rect key="frame" x="4" y="106" width="367" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="jLX-9p-91M" secondAttribute="trailing" constant="4" id="1VB-ej-X4A"/>
+                        <constraint firstAttribute="bottom" secondItem="0g2-iF-SAR" secondAttribute="bottom" id="2u7-fq-kEp"/>
+                        <constraint firstAttribute="trailing" secondItem="0g2-iF-SAR" secondAttribute="trailing" id="4W9-5r-hxe"/>
+                        <constraint firstItem="jLX-9p-91M" firstAttribute="leading" secondItem="yEw-mw-ek7" secondAttribute="leading" constant="4" id="CWr-TJ-fWT"/>
+                        <constraint firstItem="0g2-iF-SAR" firstAttribute="top" secondItem="yEw-mw-ek7" secondAttribute="top" id="UKx-fi-142"/>
+                        <constraint firstAttribute="bottom" secondItem="jLX-9p-91M" secondAttribute="bottom" constant="4" id="ep6-q7-IRQ"/>
+                        <constraint firstItem="0g2-iF-SAR" firstAttribute="leading" secondItem="yEw-mw-ek7" secondAttribute="leading" id="ydM-qW-wrq"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="0g2-iF-SAR" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Baq-5P-QkP"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0g2-iF-SAR" secondAttribute="trailing" id="E2e-Yw-3OB"/>
-                <constraint firstItem="0g2-iF-SAR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="KXX-8i-IcF"/>
-                <constraint firstItem="jLX-9p-91M" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="gP3-tE-irk"/>
-                <constraint firstItem="0g2-iF-SAR" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="qyR-ZJ-rrZ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jLX-9p-91M" secondAttribute="bottom" constant="8" id="uno-Of-D6d"/>
+                <constraint firstAttribute="trailing" secondItem="yEw-mw-ek7" secondAttribute="trailing" id="02v-g1-fIT"/>
+                <constraint firstItem="yEw-mw-ek7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CdQ-gn-5dc"/>
+                <constraint firstItem="yEw-mw-ek7" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="EqC-3W-5rp"/>
+                <constraint firstItem="yEw-mw-ek7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="woV-Cq-9zz"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="77.599999999999994" y="-116.04197901049476"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

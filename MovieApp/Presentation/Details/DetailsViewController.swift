@@ -25,6 +25,8 @@ final class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Details"
+
         collectionView.register(SimilarMovieCell.self,
                                 forCellWithReuseIdentifier: SimilarMovieCell.identifier)
 
@@ -59,7 +61,7 @@ extension DetailsViewController: DetailsView {
             return UIImage(named: "Movie")
         }()
         nameLabel.text = movie.name
-        ratingLabel.text = "\(movie.averageRating)"
+        ratingLabel.text = "⭐ \(movie.averageRating) ⭐"
         overviewTextLabel.text = movie.overview
     }
 
