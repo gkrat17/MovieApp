@@ -97,7 +97,13 @@ extension MoviesViewController: UICollectionViewDelegateFlowLayout {
         var width: CGFloat = UIApplication.shared.windows[0].frame.width - view.safeAreaInsets.left - view.safeAreaInsets.right
         let height: CGFloat = 120
 
-        if !isCompact { width /= 2 }
+        let device = UIDevice.current
+        let orientation = device.orientation
+        let idiom = device.userInterfaceIdiom
+
+        if !isCompact || (idiom == .phone && (orientation == .landscapeLeft || orientation == .landscapeRight)) {
+            width /= 2
+        }
         width -= 2 * collectionViewInset
 
         return .init(width: width, height: height)
