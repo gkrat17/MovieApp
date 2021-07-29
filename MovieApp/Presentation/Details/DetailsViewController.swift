@@ -69,7 +69,7 @@ extension DetailsViewController: DetailsView {
             return UIImage(named: "Movie")
         }()
         nameLabel.text = movie.name
-        ratingLabel.text = "⭐ \(movie.averageRating) ⭐"
+        ratingLabel.text = "\(movie.averageRating) ⭐"
         overviewTextLabel.text = movie.overview
     }
 

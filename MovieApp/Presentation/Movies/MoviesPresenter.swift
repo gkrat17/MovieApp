@@ -117,7 +117,7 @@ fileprivate extension Movie {
     var summaryViewModel: MovieSummaryViewModel {
         .init(
             name: name,
-            rating: "⭐ \(averageRating) ⭐",
+            rating: "⭐ \(averageRating)",
             image: image
         )
     }

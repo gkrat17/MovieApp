@@ -32,6 +32,7 @@ class RequestBuilderTests: XCTestCase {
     }
 
     func testSetMethod() {
+        // when
         let request = create()
             .set(method: .popular)
             .build()
@@ -41,6 +42,7 @@ class RequestBuilderTests: XCTestCase {
     }
 
     func testSetPage() {
+        // when
         let request = create()
             .set(page: 1)
             .build()
@@ -50,6 +52,7 @@ class RequestBuilderTests: XCTestCase {
     }
 
     func testSimultaneously() {
+        // when
         let request = create(apiKey: "KEY")
             .set(method: .similar(id: 8))
             .set(page: 64)
