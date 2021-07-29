@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -21,38 +21,38 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t3e-8D-TvY" userLabel="Details Super View">
-                    <rect key="frame" x="0.0" y="44" width="414" height="540"/>
+                    <rect key="frame" x="0.0" y="0.0" width="507" height="1024"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9jV-PY-gZH" userLabel="Details View">
-                            <rect key="frame" x="16" y="16" width="382" height="508"/>
+                            <rect key="frame" x="16" y="16" width="475" height="992"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xZ5-fF-2W7">
-                                    <rect key="frame" x="0.0" y="0.0" width="382" height="254"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="475" height="496"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doX-y2-Myk" userLabel="Name Label">
-                                    <rect key="frame" x="16" y="217.5" width="285" height="20.5"/>
+                                    <rect key="frame" x="16" y="459.5" width="378" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eB-mD-Bmo" userLabel="Rating Label">
-                                    <rect key="frame" x="317" y="217" width="49" height="21"/>
+                                    <rect key="frame" x="410" y="459" width="49" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCI-3h-mi4" userLabel="Overview Title Label">
-                                    <rect key="frame" x="16" y="262" width="72" height="21"/>
+                                    <rect key="frame" x="16" y="504" width="72" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Overview Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vss-pm-2bu" userLabel="Overview Text Label">
-                                    <rect key="frame" x="16" y="291" width="350" height="201"/>
+                                    <rect key="frame" x="16" y="533" width="443" height="443"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -93,10 +93,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mRt-qd-Nfj" userLabel="Similars Super View">
-                    <rect key="frame" x="0.0" y="592" width="414" height="270"/>
+                    <rect key="frame" x="514.5" y="0.0" width="253.5" height="1024"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cb1-RS-DKq" userLabel="Similars View">
-                            <rect key="frame" x="16" y="16" width="382" height="238"/>
+                            <rect key="frame" x="16" y="16" width="221.5" height="992"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Similar Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZp-RZ-rSp" userLabel="Similars Title Label">
                                     <rect key="frame" x="16" y="16" width="110" height="21"/>
@@ -105,7 +105,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7hD-mt-qKi">
-                                    <rect key="frame" x="0.0" y="53" width="382" height="169"/>
+                                    <rect key="frame" x="0.0" y="53" width="221.5" height="923"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YdW-rR-2JC">
                                         <size key="itemSize" width="128" height="128"/>
@@ -164,6 +164,18 @@
                 </mask>
             </variation>
             <variation key="heightClass=compact">
+                <mask key="constraints">
+                    <include reference="7zZ-QO-fV9"/>
+                    <exclude reference="CT7-Sn-Nif"/>
+                    <exclude reference="Eff-6c-Pp5"/>
+                    <include reference="F6a-R3-CaJ"/>
+                    <exclude reference="3DQ-gK-idc"/>
+                    <include reference="4w0-cy-N4v"/>
+                    <include reference="Bcd-Ym-zk6"/>
+                    <exclude reference="lMe-tm-kEY"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=regular">
                 <mask key="constraints">
                     <include reference="7zZ-QO-fV9"/>
                     <exclude reference="CT7-Sn-Nif"/>
